@@ -1,11 +1,16 @@
 package main
 
-import "fmt"
+import "testing"
 
-func main() {
-	fmt.Println(Ola("mundo"))
+func Ola() string {
+	return "Olá, mundo 2"
 }
 
-func Ola(nome string) string {
-	return "Olá, " + nome
+func TestOla(t *testing.T) {
+	resultado := Ola()
+	esperado := "Olá, mundo"
+
+	if resultado != esperado {
+		t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
+	}
 }
