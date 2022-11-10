@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(Ola("mundo"))
+	fmt.Println(Ola(""))
 }
 
 const prefixoOlaPortugues = "Olá, "

@@ -16,9 +16,4 @@ func TestOla(t *testing.T) {
 		verificaMensagemCorreta(t, resultado, esperado)
 	})
 
-	t.Run("'Mundo' como padrão para 'string' vazia", func(t *testing.T) {
-		resultado := Ola("")
-		esperado := "Olá, Mundo"
-		verificaMensagemCorreta(t, resultado, esperado)
-	})
 }
