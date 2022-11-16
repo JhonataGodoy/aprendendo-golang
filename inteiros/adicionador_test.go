@@ -1,7 +1,6 @@
 package inteiros
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -12,9 +11,4 @@ func TestAdicionador(t *testing.T) {
 	if soma != esperado {
 		t.Errorf("esperado '%d', resultado '%d'", esperado, soma)
 	}
-}
-
-func ExampleAdiciona() {
-	soma := Adiciona(1, 5)
-	fmt.Println(soma)
 }
