@@ -1,9 +1,16 @@
 package main
 
-// Dicionario armazena definições de palavras
+import "errors"
+
 type Dicionario map[string]string
 
-// Busca encontra uma palavra no dicionário
-func (d Dicionario) Busca(palavra string) string {
-	return d[palavra]
+var ErrNaoEncontrado = errors.New("não foi possível encontrar a palavra procurada")
+
+func (d Dicionario) Busca(palavra string) (string, error) {
+	definicao, ok := d[palavra]
+	if !ok {
+		return "", ErrNaoEncontrado
+	}
+
+	return definicao, nil
 }
