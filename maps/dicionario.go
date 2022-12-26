@@ -37,3 +37,7 @@ func (d Dicionario) Adiciona(palavra, definicao string) error {
 
 	return nil
 }
+
+func (d Dicionario) Atualiza(palavra, definicao string) {
+	d[palavra] = definicao
+}
