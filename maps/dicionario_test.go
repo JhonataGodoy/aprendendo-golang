@@ -26,33 +26,6 @@ func TestAdiciona(t *testing.T) {
 		dicionario := Dicionario{}
 		palavra := "teste"
 		definicao := "isso é apenas um teste"
-
-		err := dicionario.Adiciona(palavra, definicao)
-
-		comparaErro(t, err, nil)
-		comparaDefinicao(t, dicionario, palavra, definicao)
-	})
-
-	t.Run("palavra existente", func(t *testing.T) {
-		palavra := "teste"
-		definicao := "isso é apenas um teste"
-		dicionario := Dicionario{palavra: definicao}
-		err := dicionario.Adiciona(palavra, "teste novo")
-
-		comparaErro(t, err, ErrPalavraExistente)
-		comparaDefinicao(t, dicionario, palavra, definicao)
-	})
-}
-
-func TestAtualiza(t *testing.T) {
-	palavra := "teste"
-	definicao := "isso é apenas um teste"
-	dicionario := Dicionario{palavra: definicao}
-	novaDefinicao := "nova definição"
-
-	dicionario.Atualiza(palavra, novaDefinicao)
-
-	comparaDefinicao(t, dicionario, palavra, novaDefinicao)
 }
 
 func comparaStrings(t *testing.T, resultado, esperado string) {

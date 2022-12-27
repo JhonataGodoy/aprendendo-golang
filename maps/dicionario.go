@@ -8,10 +8,6 @@ const (
 
 type ErrDicionario string
 
-func (e ErrDicionario) Error() string {
-	return string(e)
-}
-
 type Dicionario map[string]string
 
 func (d Dicionario) Busca(palavra string) (string, error) {
@@ -36,8 +32,5 @@ func (d Dicionario) Adiciona(palavra, definicao string) error {
 	}
 
 	return nil
-}
 
-func (d Dicionario) Atualiza(palavra, definicao string) {
-	d[palavra] = definicao
 }
