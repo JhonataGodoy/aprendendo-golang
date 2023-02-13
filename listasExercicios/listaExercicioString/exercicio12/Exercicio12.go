@@ -1,8 +1,8 @@
 package main
 
-//Desenvolva um programa que solicite a digitação de um número de CPF no formato xxx.xxx.xxx-xx e
-//indique se é um número válido ou inválido através da validação dos dígitos verificadores edos
-//caracteres de formatação.
+//Valida e corrige número de telefone. Faça um programa que leia um número de telefone, e corrija
+//o número no caso deste conter somente 7 dígitos, acrescentando o '3' na frente. O usuário pode
+//informar o número com ou sem o traço separador.
 
 import (
 	"bufio"
@@ -16,31 +16,31 @@ import (
 func main() {
 
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("enter your Cpf:")
-	pickUpCpf, _ := reader.ReadString('\n')
-	wipeCpf := strings.TrimSpace(pickUpCpf)
+	fmt.Println("enter your phone number:")
+	pickUpNumber, _ := reader.ReadString('\n')
+	wipeNumber := strings.TrimSpace(pickUpNumber)
 
-	var pointValidation int
-	if len(wipeCpf) == 14 {
+	pointValidation := 0
+	if len(wipeNumber) == 14 {
 		pointValidation += 1
 		//	confere se tem 14 caracteres ok
 	}
-	if string(wipeCpf[3]) == "." {
+	if string(wipeNumber[3]) == "." {
 		pointValidation += 1
 		//confere primeiro ponto ok
 	}
-	if string(wipeCpf[7]) == "." {
+	if string(wipeNumber[7]) == "." {
 		pointValidation += 1
 		//confere segundo ponto ok
 	}
-	if string(wipeCpf[11]) == "-" {
+	if string(wipeNumber[11]) == "-" {
 		pointValidation += 1
 		//confere terceiro ponto ok
 	}
 
-	var validZero int
+	validZero := 0
 	for i := 0; i <= 13; i++ {
-		caractersConvert := string(wipeCpf[i])
+		caractersConvert := string(wipeNumber[i])
 		intNumber, _ := strconv.Atoi(caractersConvert)
 
 		if intNumber > 0 {

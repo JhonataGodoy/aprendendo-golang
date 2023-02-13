@@ -19,7 +19,7 @@ func main() {
 	pickUpPalim, _ := reader.ReadString('\n')
 	wipePalim := strings.TrimSpace(pickUpPalim)
 
-	leftRight := ""
-	rightLeft := ""
+	var leftRight string
+	var rightLeft string
 	fmt.Println(wipePalim, leftRight, rightLeft)
 }

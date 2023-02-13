@@ -6,12 +6,15 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"strings"
+	"log"
 )
 
 func main() {
-	pickUpWordTxt, _ := ioutil.ReadFile("Words.txt")
-	pickUpSlice := strings.Fields(string(pickUpWordTxt))
-	fmt.Println(pickUpSlice)
-
+	abreviaCaminho := "/Users/jhgodoy/Documents/Transport Core/aprendendo-golang/listasExercicios/listaExercicioString/exercicio11/Exercicio11.txt"
+	file, err := ioutil.ReadFile(abreviaCaminho)
+	if err != nil {
+		log.Fatal(err)
+	}
+	text := string(file)
+	fmt.Println(text)
 }
