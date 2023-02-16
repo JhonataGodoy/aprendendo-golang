@@ -27,7 +27,7 @@ func main() {
 		fmt.Print("Telefone corrigido com formatação:", wipeNumber)
 	}
 
-	if CaracterNumber == 8 {
+	if CaracterNumber == 8 || CaracterNumber == 9 {
 		fmt.Print("telefone:", pickUpNumber)
 	}
 
