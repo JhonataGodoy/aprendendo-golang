@@ -21,7 +21,6 @@ func main() {
 	var spaceA, spaceE, spaceI, spaceO, spaceU, whiteSpace int
 	var pickUpAllPhrase string
 
-	//for i := len(pickUpPhrase) - 1; i >= 0; i-- {
 	for i, _ := range pickUpPhrase {
 
 		pickUpAllPhrase = string(convertMaius[i])

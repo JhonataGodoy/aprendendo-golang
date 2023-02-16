@@ -8,58 +8,33 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strconv"
 	"strings"
 )
 
-// finish
 func main() {
 
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("enter your phone number:")
 	pickUpNumber, _ := reader.ReadString('\n')
 	wipeNumber := strings.TrimSpace(pickUpNumber)
+	CaracterNumber := len(wipeNumber) - 1
 
-	pointValidation := 0
-	if len(wipeNumber) == 14 {
-		pointValidation += 1
-		//	confere se tem 14 caracteres ok
-	}
-	if string(wipeNumber[3]) == "." {
-		pointValidation += 1
-		//confere primeiro ponto ok
-	}
-	if string(wipeNumber[7]) == "." {
-		pointValidation += 1
-		//confere segundo ponto ok
-	}
-	if string(wipeNumber[11]) == "-" {
-		pointValidation += 1
-		//confere terceiro ponto ok
+	if CaracterNumber == 7 {
+		wipeNumber = string(wipeNumber) + "3"
+		fmt.Print("telefone:", pickUpNumber)
+		fmt.Println("Telefone possui 7 dígitos. Vou acrescentar o digito três na frente.")
+		fmt.Print("Telefone corrigido sem formatação:", pickUpNumber)
+		fmt.Print("Telefone corrigido com formatação:", wipeNumber)
 	}
 
-	validZero := 0
-	for i := 0; i <= 13; i++ {
-		caractersConvert := string(wipeNumber[i])
-		intNumber, _ := strconv.Atoi(caractersConvert)
-
-		if intNumber > 0 {
-			//valido, numero ok
-		} else if intNumber == 0 {
-			validZero += 1
-			if validZero > 3 {
-				pointValidation = 0
-				// se tiver mais de 3 0 ele reinicia a variavel fazendo nao passar na validacao
-			} else if validZero == 3 {
-				pointValidation += 1
-				// só pode ter 3 zeros entao se == 3 e passar ok
-			}
-		}
+	if CaracterNumber == 8 {
+		fmt.Print("telefone:", pickUpNumber)
 	}
 
-	if pointValidation == 5 {
-		fmt.Println("number válid")
-	} else {
-		fmt.Println("number invalid")
-	}
 }
+
+//Valida e corrige número de telefone
+//Telefone: 461-0133
+//Telefone possui 7 dígitos. Vou acrescentar o digito três na frente.
+//Telefone corrigido sem formatação: 34610133
+//Telefone corrigido com formatação: 3461-0133

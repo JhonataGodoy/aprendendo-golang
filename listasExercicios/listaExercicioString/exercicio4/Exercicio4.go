@@ -9,13 +9,12 @@ import (
 	"strings"
 )
 
-// finish
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("your name: ")
 	pegaNome, _ := reader.ReadString('\n')
 	stringNome := strings.TrimSpace(pegaNome)
-	escadaNome := ""
+	var escadaNome string
 	for i := 0; i < len(stringNome); i++ {
 		escadaNome += string(stringNome[i])
 		fmt.Println(escadaNome)

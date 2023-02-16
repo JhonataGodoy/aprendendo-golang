@@ -10,10 +10,9 @@ import (
 	"strings"
 )
 
-// finish
 func main() {
-	primeiraString := ""
-	segundaString := ""
+	var primeiraString string
+	var segundaString string
 	for i := 0; i < 2; i++ {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Println(" Type a string: ")

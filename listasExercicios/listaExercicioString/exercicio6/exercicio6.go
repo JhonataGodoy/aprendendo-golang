@@ -9,7 +9,6 @@ import (
 	"strings"
 )
 
-// finish
 func main() {
 
 	reader := bufio.NewReader(os.Stdin)

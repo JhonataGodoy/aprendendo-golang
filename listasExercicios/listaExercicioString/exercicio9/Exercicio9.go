@@ -23,19 +23,15 @@ func main() {
 	var pointValidation int
 	if len(wipeCpf) == 14 {
 		pointValidation += 1
-		//	confere se tem 14 caracteres ok
 	}
 	if string(wipeCpf[3]) == "." {
 		pointValidation += 1
-		//confere primeiro ponto ok
 	}
 	if string(wipeCpf[7]) == "." {
 		pointValidation += 1
-		//confere segundo ponto ok
 	}
 	if string(wipeCpf[11]) == "-" {
 		pointValidation += 1
-		//confere terceiro ponto ok
 	}
 
 	var validZero int
@@ -44,15 +40,12 @@ func main() {
 		intNumber, _ := strconv.Atoi(caractersConvert)
 
 		if intNumber > 0 {
-			//valido, numero ok
 		} else if intNumber == 0 {
 			validZero += 1
 			if validZero > 3 {
 				pointValidation = 0
-				// se tiver mais de 3 0 ele reinicia a variavel fazendo nao passar na validacao
 			} else if validZero == 3 {
 				pointValidation += 1
-				// só pode ter 3 zeros entao se == 3 e passar ok
 			}
 		}
 	}

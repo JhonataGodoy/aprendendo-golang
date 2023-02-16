@@ -11,7 +11,6 @@ import (
 	"strings"
 )
 
-// finish
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("your name: ")
