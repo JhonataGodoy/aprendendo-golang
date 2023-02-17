@@ -8,6 +8,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -18,23 +19,31 @@ func main() {
 	pickUpNumber, _ := reader.ReadString('\n')
 	wipeNumber := strings.TrimSpace(pickUpNumber)
 	CaracterNumber := len(wipeNumber) - 1
-
-	if CaracterNumber == 7 {
-		wipeNumber = string(wipeNumber) + "3"
-		fmt.Print("telefone:", pickUpNumber)
-		fmt.Println("Telefone possui 7 dígitos. Vou acrescentar o digito três na frente.")
-		fmt.Print("Telefone corrigido sem formatação:", pickUpNumber)
-		fmt.Print("Telefone corrigido com formatação:", wipeNumber)
+	validaLetra, _ := strconv.Atoi(wipeNumber)
+	for {
+		if validaLetra > 0 || string(wipeNumber[5]) == "-" {
+			if CaracterNumber < 7 {
+				fmt.Println("Numero com caracteres insuficientes")
+				break
+			} else if CaracterNumber == 7 {
+				wipeNumber = string(wipeNumber) + "3"
+				fmt.Print("telefone:", pickUpNumber)
+				fmt.Println("Telefone possui 7 dígitos. Vou acrescentar o digito três na frente.")
+				fmt.Print("Telefone corrigido sem formatação:", pickUpNumber)
+				fmt.Print("Telefone corrigido com formatação:", wipeNumber)
+				break
+			} else if CaracterNumber == 8 {
+				fmt.Print("telefone:", pickUpNumber)
+				break
+			} else if CaracterNumber == 9 {
+				if string(wipeNumber[5]) == "-" {
+					fmt.Println("telefone:", pickUpNumber)
+					break
+				}
+			}
+		} else {
+			fmt.Println("Numero invalido ")
+			break
+		}
 	}
-
-	if CaracterNumber == 8 || CaracterNumber == 9 {
-		fmt.Print("telefone:", pickUpNumber)
-	}
-
 }
-
-//Valida e corrige número de telefone
-//Telefone: 461-0133
-//Telefone possui 7 dígitos. Vou acrescentar o digito três na frente.
-//Telefone corrigido sem formatação: 34610133
-//Telefone corrigido com formatação: 3461-0133
