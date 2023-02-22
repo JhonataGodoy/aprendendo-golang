@@ -15,11 +15,20 @@ import (
 func main() {
 
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("enter your Cpf:")
-	pickUpPalim, _ := reader.ReadString('\n')
-	wipePalim := strings.TrimSpace(pickUpPalim)
+	fmt.Println("enter your caracter:")
+	pickUpCaracter, _ := reader.ReadString('\n')
+	wipeCaracter := strings.TrimSpace(pickUpCaracter)
 
-	var leftRight string
-	var rightLeft string
-	fmt.Println(wipePalim, leftRight, rightLeft)
+	var storestring string
+	for i := 0; i < len(wipeCaracter); i++ {
+		if string(wipeCaracter[i]) != " " {
+			storestring = storestring + string(wipeCaracter[i])
+		}
+	}
+
+	for i := len(wipeCaracter); i > 0; i-- {
+		fmt.Print(string(storestring[i-1]))
+	}
+	fmt.Println(storestring)
+
 }
