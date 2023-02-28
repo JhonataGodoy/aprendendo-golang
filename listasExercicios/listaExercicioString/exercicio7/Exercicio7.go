@@ -24,7 +24,6 @@ func main() {
 	for i, _ := range pickUpPhrase {
 
 		pickUpAllPhrase = string(convertMaius[i])
-		fmt.Println(pickUpAllPhrase, "pickUpAllPhrase aqui")
 		if pickUpAllPhrase == "" {
 			whiteSpace += 1
 		} else if pickUpAllPhrase == "A" {

@@ -14,6 +14,7 @@ import (
 )
 
 func main() {
+
 	abreviaCaminho := "/Users/jhgodoy/Documents/Transport Core/aprendendo-golang/listasExercicios/listaExercicioString/exercicio11/Exercicio11.txt"
 	openFile, err := os.Open(abreviaCaminho)
 	if err != nil {
@@ -37,5 +38,24 @@ func main() {
 	numberElements := len(pickUpWords)
 	randomNumber := rand.Intn(numberElements) // numeros aleatorios
 
+	var pickUpAllPhrase string
+	var error int
+
+	for i := len(pickUpWords[randomNumber]) - 1; i >= 0; i-- {
+		var letraAcerto int
+		readerD := bufio.NewReader(os.Stdin)
+		fmt.Println("Digite uma letra:")
+		pickUpLetra, _ := readerD.ReadString('\n')
+		wipeLetra := strings.TrimSpace(pickUpLetra)
+
+		pickUpAllPhrase = string(pickUpWords[randomNumber][i])
+		if pickUpAllPhrase == wipeLetra {
+			letraAcerto += 1
+		}
+		if letraAcerto == 0 {
+			error += 1
+		}
+		fmt.Println("Quantidade de erros:", error, "vezes")
+	}
 	fmt.Println(pickUpWords[randomNumber])
 }
